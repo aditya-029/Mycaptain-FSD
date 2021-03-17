@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO</title>
+    <link rel="stylesheet" href="/todolist.css" />
+  </head>
+  <body>
+    <input type="text" id="new_list_item" />
+    <button onclick="addItem()">Add items</button>
+    <!-- 1. create a list  -->
+
+    <!-- 2. give 2 default list items -->
+    <script type="text/javascript">
+      var listItems = ["buy groceries", "make breakfast"];
+    </script>
+
+    <script type="text/javascript">
+      function addItem() {
+        var tempItem = document.getElementById("new_list_item").value;
+        listItems.push(tempItem);
+        displayList(tempItem);
+        var tempItem = (document.getElementById("new_list_item").value = "");
+      }
+    </script>
+    <!-- 3. display the list -->
+    <div id="display">
+      <h3>Your TODO :</h3>
+      <ul>
+        <script type="text/javascript">
+          listItems.forEach(displayList);
+
+          function displayList(item) {
+            document.getElementById("display").innerHTML +=
+              "<li>" + item + "</li>";
+          }
+        </script>
+      </ul>
+    </div>
+    <!-- 4.Add items to the list -->
+  </body>
+</html>
